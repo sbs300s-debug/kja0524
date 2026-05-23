@@ -1,14 +1,317 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+
+  <title>바이오리듬 로또번호 추천기 | 생년월일 기반 번호 추천</title>
+
+  <meta name="description" content="생년월일을 입력하면 오늘의 바이오리듬을 계산해 로또 번호 5세트와 보너스 번호를 재미로 추천해주는 무료 웹사이트입니다." />
+  <meta name="keywords" content="바이오리듬, 로또번호 추천, 로또 추천기, 생년월일 로또, 무료 로또번호" />
+  <meta name="author" content="김정아" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="바이오리듬 로또번호 추천기" />
+  <meta property="og:description" content="생년월일을 입력하고 오늘의 바이오리듬에 맞는 로또 번호를 추천받아보세요." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fff7ed, #eef2ff);
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header, main, section, footer {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 40px 24px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      color: #6d28d9;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #333;
+      margin-top: 40px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    label {
+      display: block;
+      margin-top: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      padding: 14px;
+      width: 100%;
+      max-width: 320px;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      margin: 12px 0 18px;
+    }
+
+    button {
+      padding: 14px 28px;
+      background: #7c3aed;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5b21b6;
+    }
+
+    button:focus, input:focus {
+      outline: 3px solid #c4b5fd;
+    }
+
+    .info {
+      margin-top: 24px;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .result {
+      margin-top: 28px;
+    }
+
+    .lotto-set {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 18px;
+      margin: 16px 0;
+    }
+
+    .ball {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #facc15;
+      color: #111;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .bonus {
+      background: #fb7185;
+      color: white;
+    }
+
+    .plus {
+      font-size: 24px;
+      font-weight: bold;
+      color: #555;
+      margin: 0 8px;
+    }
+
+    .guide {
+      margin-top: 40px;
+      text-align: left;
+      background: #fafafa;
+      padding: 24px;
+      border-radius: 18px;
+    }
+
+    .guide ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      margin-top: 28px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "바이오리듬 로또번호 추천기",
+    "description": "생년월일을 입력하면 오늘의 바이오리듬을 계산해 로또 번호 5세트와 보너스 번호를 추천해주는 웹사이트입니다.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "All",
+    "inLanguage": "ko-KR",
+    "author": {
+      "@type": "Person",
+      "name": "김정아"
+    }
+  }
+  </script>
 </head>
+
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <header class="container">
+    <h1>바이오리듬 로또번호 추천기</h1>
+    <p>
+      생년월일을 입력하면 오늘의 바이오리듬을 계산해
+      로또 번호 5세트와 보너스 번호를 추천해드립니다.
+    </p>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-labelledby="lotto-title">
+      <h2 id="lotto-title">생년월일 기반 로또번호 추천</h2>
+
+      <p>
+        바이오리듬은 신체, 감성, 지성 주기를 바탕으로 계산됩니다.
+        이 페이지는 재미와 참고용으로 번호를 추천합니다.
+      </p>
+
+      <label for="birthDate">생년월일 선택</label>
+      <input type="date" id="birthDate" aria-label="생년월일 입력" />
+
+      <br />
+
+      <button type="button" onclick="generateLotto()">
+        로또번호 추천받기
+      </button>
+
+      <div class="info" id="biorhythmInfo" aria-live="polite"></div>
+      <div class="result" id="result" aria-live="polite"></div>
+    </section>
+
+    <section class="guide">
+      <h2>이 사이트의 이용 방법</h2>
+      <ul>
+        <li>생년월일을 선택합니다.</li>
+        <li>버튼을 누르면 로또 번호 5세트가 생성됩니다.</li>
+        <li>각 세트에는 기본 번호 6개와 보너스 번호 1개가 표시됩니다.</li>
+      </ul>
+
+      <h2>주의사항</h2>
+      <p>
+        이 번호는 당첨을 보장하지 않습니다.
+        바이오리듬 계산을 활용한 재미용 추천 서비스입니다.
+      </p>
+    </section>
+  </main>
+
+  <footer class="container">
+    © 2026 김정아. 재미로 보는 로또번호 추천 서비스입니다.
+  </footer>
+
+  <script>
+    function generateLotto() {
+      const birthDateValue = document.getElementById("birthDate").value;
+      const resultDiv = document.getElementById("result");
+      const infoDiv = document.getElementById("biorhythmInfo");
+
+      if (!birthDateValue) {
+        alert("생년월일을 입력해주세요.");
+        return;
+      }
+
+      const birthDate = new Date(birthDateValue);
+      const today = new Date();
+
+      if (birthDate > today) {
+        alert("오늘보다 미래 날짜는 입력할 수 없습니다.");
+        return;
+      }
+
+      const diffTime = today - birthDate;
+      const daysAlive = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+      const physical = Math.sin((2 * Math.PI * daysAlive) / 23);
+      const emotional = Math.sin((2 * Math.PI * daysAlive) / 28);
+      const intellectual = Math.sin((2 * Math.PI * daysAlive) / 33);
+
+      infoDiv.innerHTML = `
+        <strong>오늘의 바이오리듬</strong><br>
+        신체: ${Math.round(physical * 100)} /
+        감성: ${Math.round(emotional * 100)} /
+        지성: ${Math.round(intellectual * 100)}
+      `;
+
+      resultDiv.innerHTML = "";
+
+      for (let i = 1; i <= 5; i++) {
+        const numbers = makeLottoNumbers(daysAlive + i * 999);
+        const bonus = makeBonusNumber(numbers, daysAlive + i * 777);
+
+        let html = `
+          <article class="lotto-set">
+            <h3>${i}세트 추천번호</h3>
+        `;
+
+        numbers.forEach(num => {
+          html += `<span class="ball" aria-label="번호 ${num}">${num}</span>`;
+        });
+
+        html += `
+            <span class="plus" aria-hidden="true">+</span>
+            <span class="ball bonus" aria-label="보너스 번호 ${bonus}">${bonus}</span>
+          </article>
+        `;
+
+        resultDiv.innerHTML += html;
+      }
+    }
+
+    function makeLottoNumbers(seed) {
+      const numbers = [];
+
+      while (numbers.length < 6) {
+        seed = (seed * 9301 + 49297) % 233280;
+        const number = Math.floor((seed / 233280) * 45) + 1;
+
+        if (!numbers.includes(number)) {
+          numbers.push(number);
+        }
+      }
+
+      return numbers.sort((a, b) => a - b);
+    }
+
+    function makeBonusNumber(numbers, seed) {
+      let bonus;
+
+      do {
+        seed = (seed * 9301 + 49297) % 233280;
+        bonus = Math.floor((seed / 233280) * 45) + 1;
+      } while (numbers.includes(bonus));
+
+      return bonus;
+    }
+  </script>
 </body>
 </html>

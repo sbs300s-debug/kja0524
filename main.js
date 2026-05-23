@@ -1,1 +1,1 @@
-// Add JS here
+// Contents moved to index.html
