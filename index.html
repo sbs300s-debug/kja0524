@@ -23,7 +23,7 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
       background: linear-gradient(135deg, #fff7ed, #eef2ff);
       color: #222;
       line-height: 1.6;
@@ -34,9 +34,9 @@
     }
 
     .container {
-      max-width: 760px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 40px 20px;
       text-align: center;
     }
 
@@ -50,26 +50,27 @@
 
     .tab-btn {
       padding: 12px 24px;
-      background: #e2e8f0;
-      border: none;
-      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 50px;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s;
-      color: #475569;
+      color: #64748b;
     }
 
     .tab-btn.active {
       background: #7c3aed;
       color: white;
-      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+      border-color: #7c3aed;
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
     }
 
     .card {
       background: #ffffff;
       padding: 40px 24px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
       display: none;
     }
 
@@ -84,95 +85,112 @@
     }
 
     h1 {
-      color: #6d28d9;
-      font-size: 32px;
-      margin-bottom: 12px;
+      color: #1e293b;
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: 800;
     }
 
     h2 {
-      font-size: 22px;
-      color: #333;
-      margin-top: 40px;
+      font-size: 24px;
+      color: #334155;
+      margin-top: 0;
+      margin-bottom: 20px;
     }
 
     p {
-      color: #555;
+      color: #64748b;
       font-size: 16px;
+      margin-bottom: 30px;
     }
 
     label {
       display: block;
-      margin-top: 24px;
+      margin-bottom: 10px;
       font-weight: bold;
-      color: #333;
+      color: #475569;
     }
 
     input {
-      padding: 14px;
+      padding: 15px;
       width: 100%;
-      max-width: 320px;
-      border: 2px solid #ddd;
-      border-radius: 12px;
+      max-width: 300px;
+      border: 2px solid #f1f5f9;
+      border-radius: 15px;
       font-size: 16px;
-      margin: 12px 0 18px;
+      margin-bottom: 20px;
+      background: #f8fafc;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #c4b5fd;
     }
 
     button {
-      padding: 14px 28px;
+      padding: 16px 40px;
       background: #7c3aed;
       color: white;
       border: none;
-      border-radius: 30px;
-      font-size: 16px;
+      border-radius: 50px;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.3s;
     }
 
     button:hover {
-      background: #5b21b6;
+      background: #6d28d9;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(109, 40, 217, 0.4);
     }
 
     .info {
-      margin-top: 24px;
-      color: #555;
-      font-size: 15px;
+      margin-top: 30px;
+      padding: 20px;
+      background: #f5f3ff;
+      border-radius: 20px;
+      color: #5b21b6;
     }
 
     .result {
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .lotto-set {
       background: #f8fafc;
-      border-radius: 18px;
-      padding: 18px;
-      margin: 16px 0;
+      border-radius: 25px;
+      padding: 25px;
+      margin: 20px 0;
+      border: 1px solid #f1f5f9;
     }
 
     .ball {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      width: 44px;
-      height: 44px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       background: #facc15;
-      color: #111;
-      font-weight: bold;
+      color: #1e293b;
+      font-weight: 800;
       margin: 5px;
+      box-shadow: 0 4px 0 #eab308;
     }
 
     .bonus {
       background: #fb7185;
       color: white;
+      box-shadow: 0 4px 0 #e11d48;
     }
 
     .plus {
       font-size: 24px;
       font-weight: bold;
-      color: #555;
-      margin: 0 8px;
+      color: #94a3b8;
+      margin: 0 10px;
     }
 
     /* Meal Section Styles */
@@ -180,117 +198,120 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
       margin-top: 30px;
     }
 
     .meal-card {
-      background: #fdf2f8;
-      border: 2px solid #fbcfe8;
-      border-radius: 16px;
-      padding: 20px;
-      width: 200px;
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 25px;
+      overflow: hidden;
+      width: 230px;
       text-align: center;
-      transition: transform 0.2s;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     .meal-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .meal-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #f1f5f9;
+    }
+
+    .meal-info {
+      padding: 20px;
     }
 
     .meal-type {
-      font-size: 14px;
+      font-size: 13px;
       color: #db2777;
       font-weight: bold;
       margin-bottom: 8px;
+      background: #fdf2f8;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
     }
 
     .meal-name {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
-      color: #1f2937;
+      color: #1e293b;
+      margin-top: 5px;
     }
 
     .guide {
       margin-top: 40px;
       text-align: left;
-      background: #fafafa;
-      padding: 24px;
-      border-radius: 18px;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
     }
 
     footer {
-      margin-top: 28px;
+      margin-top: 40px;
       font-size: 14px;
-      color: #777;
+      color: #94a3b8;
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "바이오리듬 & 메뉴 추천기",
-    "description": "생년월일 기반 바이오리듬 로또 번호와 오늘의 메뉴를 추천해주는 웹사이트입니다.",
-    "applicationCategory": "EntertainmentApplication",
-    "operatingSystem": "All",
-    "inLanguage": "ko-KR",
-    "author": {
-      "@type": "Person",
-      "name": "김정아"
-    }
-  }
-  </script>
 </head>
 
 <body>
   <header class="container">
     <h1>오늘의 추천 서비스</h1>
-    <p>당신의 하루에 작은 행운과 즐거움을 더해드립니다.</p>
+    <p>일상의 소소한 고민을 덜어드리는 스마트 추천 가이드</p>
   </header>
 
   <main class="container">
     <nav class="tabs">
-      <button class="tab-btn active" onclick="switchTab('lotto')">로또 번호 추천</button>
+      <button class="tab-btn active" onclick="switchTab('lotto')">로또 추천</button>
       <button class="tab-btn" onclick="switchTab('meal')">메뉴 추천</button>
     </nav>
 
     <!-- Lotto Section -->
-    <section id="lotto-section" class="card active" aria-labelledby="lotto-title">
-      <h2 id="lotto-title">생년월일 기반 로또번호 추천</h2>
-      <p>바이오리듬 주기를 계산하여 행운의 번호를 추천해드립니다.</p>
+    <section id="lotto-section" class="card active">
+      <h2>행운의 로또 번호</h2>
+      <p>당신의 바이오리듬을 분석하여 오늘 가장 기운이 좋은 번호를 추출합니다.</p>
 
-      <label for="birthDate">생년월일 선택</label>
+      <label for="birthDate">생년월일</label>
       <input type="date" id="birthDate" />
       <br />
-      <button type="button" onclick="generateLotto()">추천받기</button>
+      <button type="button" onclick="generateLotto()">추천 번호 생성</button>
 
-      <div class="info" id="biorhythmInfo"></div>
+      <div class="info" id="biorhythmInfo" style="display:none;"></div>
       <div class="result" id="result"></div>
     </section>
 
     <!-- Meal Section -->
-    <section id="meal-section" class="card" aria-labelledby="meal-title">
-      <h2 id="meal-title">오늘의 식사 메뉴 추천</h2>
-      <p>결정 장애 해결! 아침, 점심, 저녁 메뉴를 골라드릴게요.</p>
+    <section id="meal-section" class="card">
+      <h2>오늘의 식단 가이드</h2>
+      <p>오늘 무엇을 먹을지 고민이라면? 당신을 위한 최적의 메뉴를 확인하세요.</p>
       
-      <button type="button" onclick="generateMeals()">메뉴 추천받기</button>
+      <button type="button" onclick="generateMeals()">메뉴 랜덤 추천</button>
 
       <div class="meal-options" id="mealResult"></div>
     </section>
 
     <section class="guide">
-      <h2>서비스 이용 안내</h2>
-      <ul>
-        <li><strong>로또 추천:</strong> 생년월일을 바탕으로 신체, 감성, 지성 주기를 분석합니다.</li>
-        <li><strong>메뉴 추천:</strong> 엄선된 30가지 이상의 메뉴 중 랜덤으로 추천합니다.</li>
+      <h2 style="font-size: 20px;">💡 이용 팁</h2>
+      <ul style="color: #64748b; padding-left: 20px;">
+        <li>로또 번호는 매일의 바이오리듬 수치에 따라 변화합니다.</li>
+        <li>메뉴 추천은 엄선된 인기 메뉴 리스트에서 무작위로 선정됩니다.</li>
+        <li>결과는 재미로만 참고해주시고, 즐거운 하루 되시길 바랍니다!</li>
       </ul>
-      <p>※ 모든 결과는 재미로만 즐겨주세요!</p>
     </section>
   </main>
 
   <footer class="container">
-    © 2026 김정아.
+    © 2026 김정아. All rights reserved.
   </footer>
 
   <script>
@@ -308,7 +329,7 @@
       
       const birthDate = new Date(birthDateValue);
       const today = new Date();
-      if (birthDate > today) { alert("오늘보다 미래 날짜는 입력할 수 없습니다."); return; }
+      if (birthDate > today) { alert("미래 날짜는 입력할 수 없습니다."); return; }
 
       const diffTime = today - birthDate;
       const daysAlive = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -316,9 +337,11 @@
       const emotional = Math.sin((2 * Math.PI * daysAlive) / 28);
       const intellectual = Math.sin((2 * Math.PI * daysAlive) / 33);
 
-      document.getElementById("biorhythmInfo").innerHTML = `
-        <strong>오늘의 바이오리듬</strong><br>
-        신체: ${Math.round(physical * 100)} / 감성: ${Math.round(emotional * 100)} / 지성: ${Math.round(intellectual * 100)}
+      const infoBox = document.getElementById("biorhythmInfo");
+      infoBox.style.display = "block";
+      infoBox.innerHTML = `
+        <strong>📊 오늘의 바이오리듬 지수</strong><br>
+        신체: ${Math.round(physical * 100)}% | 감성: ${Math.round(emotional * 100)}% | 지성: ${Math.round(intellectual * 100)}%
       `;
 
       const resultDiv = document.getElementById("result");
@@ -342,7 +365,7 @@
 
         resultDiv.innerHTML += `
           <div class="lotto-set">
-            <h3>${i}세트</h3>
+            <h3 style="font-size: 18px; margin-bottom: 15px;">추천 ${i}세트</h3>
             ${numbers.map(n => `<span class="ball">${n}</span>`).join('')}
             <span class="plus">+</span>
             <span class="ball bonus">${bonus}</span>
@@ -357,18 +380,36 @@
       dinner: ["삼겹살", "치킨", "피자", "초밥", "보쌈", "떡볶이", "갈비찜", "마라탕", "족발", "샤브샤브", "감자탕", "스테이크", "회"]
     };
 
+    const mealTags = {
+      "전복죽": "porridge", "토스트": "toast", "시리얼": "cereal", "오므라이스": "omurice", 
+      "샌드위치": "sandwich", "미역국": "soup", "순두부찌개": "stew", "누룽지": "rice", "과일 샐러드": "salad",
+      "김치찌개": "kimchi,stew", "된장찌개": "stew", "비빔밥": "bibimbap", "돈가스": "cutlet", 
+      "제육볶음": "pork", "파스타": "pasta", "짜장면": "noodle", "짬뽕": "noodle", 
+      "햄버거": "hamburger", "샐러드": "salad", "냉면": "noodle", "칼국수": "noodle", "쌀국수": "pho",
+      "삼겹살": "pork,belly", "치킨": "chicken", "피자": "pizza", "초밥": "sushi", 
+      "보쌈": "pork", "떡볶이": "tteokbokki", "갈비찜": "ribs", "마라탕": "chinese,food", 
+      "족발": "pork", "샤브샤브": "hotpot", "감자탕": "stew", "스테이크": "steak", "회": "sashimi"
+    };
+
     function generateMeals() {
       const res = document.getElementById("mealResult");
       res.innerHTML = "";
       const labels = { breakfast: "아침", lunch: "점심", dinner: "저녁" };
       
-      ["breakfast", "lunch", "dinner"].forEach(type => {
+      ["breakfast", "lunch", "dinner"].forEach((type, idx) => {
         const list = meals[type];
         const pick = list[Math.floor(Math.random() * list.length)];
+        const tag = mealTags[pick] || "food";
+        // Using a more reliable image service with a unique seed to prevent duplicate images across types
+        const imgUrl = `https://loremflickr.com/320/240/${tag}?random=${idx + Date.now()}`;
+        
         res.innerHTML += `
           <div class="meal-card">
-            <div class="meal-type">${labels[type]}</div>
-            <div class="meal-name">${pick}</div>
+            <img src="${imgUrl}" alt="${pick}" class="meal-img">
+            <div class="meal-info">
+              <div class="meal-type">${labels[type]}</div>
+              <div class="meal-name">${pick}</div>
+            </div>
           </div>
         `;
       });
