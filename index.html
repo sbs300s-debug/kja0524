@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>바이오리듬 & 메뉴 추천기 | 생년월일 기반 번호 및 식단 추천</title>
+  <title>오늘의 추천 서비스 | 로또, 메뉴, 제휴 문의</title>
 
   <meta name="description" content="생년월일 기반 바이오리듬 로또 번호와 오늘의 아침, 점심, 저녁 메뉴를 추천해주는 무료 서비스입니다." />
-  <meta name="keywords" content="바이오리듬, 로또번호 추천, 메뉴 추천, 식단 추천, 무료 추천기" />
+  <meta name="keywords" content="바이오리듬, 로또번호 추천, 메뉴 추천, 식단 추천, 제휴 문의, 무료 추천기" />
   <meta name="author" content="김정아" />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="바이오리듬 & 메뉴 추천기" />
+  <meta property="og:title" content="오늘의 추천 서비스" />
   <meta property="og:description" content="나에게 맞는 로또 번호와 맛있는 식사 메뉴를 추천받아보세요." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
@@ -46,6 +46,7 @@
       justify-content: center;
       margin-bottom: 30px;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .tab-btn {
@@ -109,21 +110,29 @@
       margin-bottom: 10px;
       font-weight: bold;
       color: #475569;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    input {
+    input, textarea {
       padding: 15px;
       width: 100%;
-      max-width: 300px;
+      max-width: 400px;
       border: 2px solid #f1f5f9;
       border-radius: 15px;
       font-size: 16px;
       margin-bottom: 20px;
       background: #f8fafc;
       transition: border-color 0.2s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: inherit;
     }
 
-    input:focus {
+    input:focus, textarea:focus {
       outline: none;
       border-color: #c4b5fd;
     }
@@ -274,6 +283,7 @@
     <nav class="tabs">
       <button class="tab-btn active" onclick="switchTab('lotto')">로또 추천</button>
       <button class="tab-btn" onclick="switchTab('meal')">메뉴 추천</button>
+      <button class="tab-btn" onclick="switchTab('contact')">제휴 문의</button>
     </nav>
 
     <!-- Lotto Section -->
@@ -298,6 +308,22 @@
       <button type="button" onclick="generateMeals()">메뉴 랜덤 추천</button>
 
       <div class="meal-options" id="mealResult"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-section" class="card">
+      <h2>제휴 및 서비스 문의</h2>
+      <p>비즈니스 제휴나 서비스 관련 문의사항을 남겨주세요.</p>
+      
+      <form action="https://formspree.io/f/mgoqzqak" method="POST" style="margin-top: 20px;">
+        <label for="email">이메일 주소</label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+        
+        <label for="message">문의 내용</label>
+        <textarea id="message" name="message" rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
+        
+        <button type="submit">문의 보내기</button>
+      </form>
     </section>
 
     <section class="guide">
@@ -400,7 +426,6 @@
         const list = meals[type];
         const pick = list[Math.floor(Math.random() * list.length)];
         const tag = mealTags[pick] || "food";
-        // Using a more reliable image service with a unique seed to prevent duplicate images across types
         const imgUrl = `https://loremflickr.com/320/240/${tag}?random=${idx + Date.now()}`;
         
         res.innerHTML += `
